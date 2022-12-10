@@ -1,0 +1,23 @@
+
+version: "3"
+
+services:
+    postgredb:
+        restart: always
+        image: postgres
+        volumes:
+            - db-data:/var/lib/postgresql/data
+            - ./SQLinit:/docker-entrypoint-initdb.d/
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: alex
+    frontend:
+        build: .
+        command: ["npm", "run", "start"]
+        ports:
+            - 3000:3000
+        
+volumes:
+    db-data:
