@@ -7,17 +7,25 @@ services:
         image: postgres
         volumes:
             - db-data:/var/lib/postgresql/data
-            - ./SQLinit:/docker-entrypoint-initdb.d/
         ports:
             - 5432:5432
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: alex
+    pgadmin:
+        image: dpage/pgadmin4
+        restart: always
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: alex
+        ports:
+             - 5050:5050
     frontend:
         build: .
-        command: ["npm", "run", "start"]
         ports:
             - 3000:3000
+        depends_on:
+            - postgredb
         
 volumes:
     db-data:
