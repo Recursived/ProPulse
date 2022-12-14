@@ -1,11 +1,11 @@
 import {PrismaClient} from "@prisma/client";
+import { db } from "~/utils/db.server";
 
-const prisma = new PrismaClient();
 
 async function seed() {
 	await Promise.all(
-		getLevels().map((joke) => {
-			return prisma.joke.create({data: joke});
+		getLevels().map((levels) => {
+			return db.schoollevel.create({data: levels});
 		})
 	);
 }
@@ -29,9 +29,9 @@ function getLevels() {
 
 // Launching seeding function asynchronously
 seed().then(async () => {
-	await prisma.$disconnect();
+	await db.$disconnect();
 }).catch(async (e) => {
 	console.error(e);
-	await prisma.$disconnect();
+	await db.$disconnect();
 	process.exit(1);
 });
