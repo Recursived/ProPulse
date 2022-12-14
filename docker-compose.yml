@@ -12,6 +12,7 @@ services:
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: alex
+            POSTGRES_DB: propulse
     pgadmin:
         image: dpage/pgadmin4
         restart: always
