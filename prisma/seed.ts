@@ -1,5 +1,4 @@
-import {PrismaClient} from "@prisma/client";
-import { db } from "~/utils/db.server";
+import { db } from "~/utils/db/db.server";
 
 
 async function seed() {
