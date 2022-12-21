@@ -1,10 +1,13 @@
 import { Box } from "@chakra-ui/react";
+import Navbar from "~/components/Navbar";
+import Timeline from "~/components/Timeline";
 
 const Index = () => {
   return (
-    <Box bg="tomato" w="100%" p={4} color="white">
-      Hello World!
-    </Box>
+  <>	  <Navbar></Navbar> 
+	<Timeline/>
+</>
+
   );
 };
 

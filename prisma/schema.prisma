@@ -21,7 +21,7 @@ model User {
 	createdAt DateTime @default(now())
 	firstname String
 	lastname String
-	email String
+	email String @unique
 	slId Int
 	level SchoolLevel @relation("level", fields: [slId], references: [id])
 }

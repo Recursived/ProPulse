@@ -5,7 +5,7 @@ import {withEmotionCache} from "@emotion/react"
 import {LinksFunction, MetaFunction} from "@remix-run/node"
 import {Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration, useCatch} from "@remix-run/react"
 import {ClientStyleContext, ServerStyleContext} from "./utils/styling/context"
-import {theme} from "@chakra-ui/react"
+import theme from "~/utils/styling/theme"
 
 
 export const meta: MetaFunction = () => {
